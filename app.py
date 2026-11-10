@@ -9,7 +9,7 @@ import streamlit as st
 
 import train_model
 
-st.set_page_config(page_title="Rain Predictor", page_icon="🌦️", layout="centered")
+st.set_page_config(page_title="Prediksi Hujan", page_icon="🌦️", layout="centered")
 
 # ---------------------------------------------------------------- konfigurasi
 FEATURE_META = {
