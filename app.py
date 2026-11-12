@@ -3,11 +3,9 @@ import base64
 import os
 from datetime import datetime
 
-import joblib
-import pandas as pd
 import streamlit as st
-
-import train_model
+import pandas as pd
+import joblib
 
 st.set_page_config(page_title="Prediksi Hujan", page_icon="🌦️", layout="centered")
 
@@ -23,14 +21,9 @@ FEATURE_META = {
 }
 
 
-@st.cache_resource(show_spinner="Menyiapkan model...")
+@st.cache_resource(show_spinner="Memuat model prediksi...")
 def load_model():
-    try:
-        return joblib.load("model.joblib")
-    except Exception:
-        # versi library berbeda / file hilang -> latih ulang dari CSV
-        train_model.train(verbose=False)
-        return joblib.load("model.joblib")
+    return joblib.load("model.joblib"))
 
 
 bundle = load_model()
